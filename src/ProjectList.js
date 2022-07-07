@@ -2,10 +2,10 @@ import React from 'react'
 import './projectList.css'
 import { nanoid } from 'nanoid'
 
-const ProjectList = ({ arr }) => {
+const ProjectList = ({ projects }) => {
   return (
     <div className='photoCards'>
-      {arr.map((item) => {
+      {projects.map((item) => {
         return (
           <div className='photoCard' key={nanoid()}>
             <img src={item.img} alt='imgCard' />

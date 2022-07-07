@@ -6,23 +6,24 @@ import projects from './projects'
 export default class Portfolio extends Component {
   constructor() {
     super()
+    const uniqueFilters = [...new Set(projects.map((item) => item.category))]
     this.state = {
-      nameButton: [{ name: 'all' }, { name: 'Websites' }, { name: 'Flayers' }, { name: 'Business Cards' }],
-      def: 'all',
-      filtered: [],
+      filterList: ['all', ...uniqueFilters],
+      filteredProjects: projects,
     }
   }
 
-  commitInputChanges = (e) => {
-    this.setState({ def: e.target.value })
+  handleClick = (filter) => {
+    this.setState({
+      filteredProjects: filter === 'all' ? projects : projects.filter((item) => item.category === filter),
+    })
   }
 
   render() {
-    const { nameButton, def } = this.state
     return (
       <div>
-        <Toolbar name={nameButton} onChange={this.commitInputChanges} />
-        <ProjectList arr={projects} />
+        <Toolbar filterList={this.state.filterList} onClick={this.handleClick} />
+        <ProjectList projects={this.state.filteredProjects} />
       </div>
     )
   }
