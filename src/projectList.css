@@ -1,0 +1,18 @@
+* {
+  box-sizing: border-box;
+}
+
+.photoCards {
+  max-width: 1144px;
+  margin: 0 auto;
+  padding: 0 15px;
+  column-count: 3;
+}
+
+.photoCard {
+  max-width: 300px;
+}
+
+.photoCard img {
+  width: 100%;
+}

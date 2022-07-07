@@ -1,0 +1,12 @@
+.toolbarWrap {
+  max-width: 1144px;
+  margin: 0 auto 40px;
+  padding: 0 15px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.buttonToolbar:not(:last-child) {
+  margin-right: 20px;
+}
