@@ -7,19 +7,21 @@ export default class Portfolio extends Component {
   constructor() {
     super()
     this.state = {
-      justClicked: null,
+      nameButton: [{ name: 'all' }, { name: 'Websites' }, { name: 'Flayers' }, { name: 'Business Cards' }],
+      def: 'all',
+      filtered: [],
     }
-    this.handleClick = this.handleClick.bind(this)
   }
 
-  handleClick(e) {
-    this.setState({ justClicked: e.target })
+  commitInputChanges = (e) => {
+    this.setState({ def: e.target.value })
   }
 
   render() {
+    const { nameButton, def } = this.state
     return (
       <div>
-        <Toolbar onClick={this.handleClick} />
+        <Toolbar name={nameButton} onChange={this.commitInputChanges} />
         <ProjectList arr={projects} />
       </div>
     )

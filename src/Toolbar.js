@@ -1,15 +1,18 @@
+import { nanoid } from 'nanoid'
 import React from 'react'
 import './toolbar.css'
 
-const Toolbar = (props) => {
-  console.log(props)
-  const filters = ['All', 'Websites', 'Flayers', 'Business Cards']
+const Toolbar = ({ name, onChange }) => {
   /* selected="All" */
   /* onSelectFilter={(filter) => {console.log(filter)}}  */
-
+  console.log(onChange)
   return (
     <div className='toolbarWrap'>
-      return (<button className='buttonToolbar'>{item}</button>)
+      {name.map((item) => (
+        <button className='buttonToolbar' key={nanoid()}>
+          {item}
+        </button>
+      ))}
     </div>
   )
 }
